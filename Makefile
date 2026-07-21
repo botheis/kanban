@@ -85,10 +85,14 @@ console: lib $(console_target)
 
 $(console_target):$(console_objs)
 	@echo "Build console EXE: " $^ " => " $@
+	$(cc) $(opts) $@ $^ $(test_cflags) $(test_libs)
+
 
 $(console_dest_path)/%.o:$(console_src_path)/%.c
-	@echo mkdir -p $(dir $@)
+	mkdir -p $(dir $@)
 	@echo "Create console O: " $^ " => " $@
+	$(cc) $(opts) $@ -c $^ $(console_cflags) $(console_libs)
+
 
 
 

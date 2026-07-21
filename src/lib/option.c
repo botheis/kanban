@@ -355,7 +355,6 @@ void opt_optParse(Opt* opt, int argc, char** argv){
     }
     if(opt->parsed == true){
         opt->valided = true;
-        printf("Opt %s >>> valided : %d\n", opt->name, opt->valided);
     }
 }
 

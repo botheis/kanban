@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <valgrind/memcheck.h>
 
 #include "assert.h"
 #include "option.h"
@@ -119,6 +118,8 @@ void OptListParse(int argc, char** argv){
     Opt* mpcOpt = opt_listGetOpt(tmp, "-mpc");
 
     opt_listParse(tmp, c4, v4);
+    ASSERT(mpcOpt->callback != NULL);
+    ASSERT(mpcOpt->callback == msg);
     ASSERT(mpcOpt->parsed == false);
     ASSERT(mpcOpt->valided == false);
 
